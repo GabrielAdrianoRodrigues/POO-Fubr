@@ -93,7 +93,7 @@
          return 0;
      } 
      
-     public double fatorial(int fatorial) {
+     public double fatorial(double fatorial) {
          for (int i = 1 ; i <= fatorial; i++) {
               fatorial *= i;
          }  
@@ -113,18 +113,17 @@
          
      public double valorP() {
          if (this.x != 0) {
-             int fatorial = 2;
-             double valorPmenor =0;
+             double divisor = 2;
              double valorP = 0;
-             for (int i = 1; i <= this.x+1;i++) {
+             for (int i = 1; i <= this.x;i++) {
                  if (i % 2 != 0) {
-                    valorP += (double)i / (double)(fatorial(fatorial));
+                    valorP += (double)i / fatorial(divisor);
                  } else {
-                    valorPmenor +=  (double)i / fatorial(fatorial);
+                    valorP -=  (double)i / fatorial(divisor);
                  }
-                 fatorial += 2;
+                 divisor += 2;
              }
-             return valorP-valorPmenor;
+             return valorP;
          }
          return 0;
      }
