@@ -12,8 +12,8 @@ public class Expressao {
         if (exp.charAt(exp.length() - 1) == '(' || exp.charAt(0) == ')') {
             return false;
         }
-        
-        for (int i  = 0; i < exp.length(); i++) {
+
+        for (int i = 0; i < exp.length(); i++) {
             if (exp.charAt(i) == ')') {
                 qtdParentes++;
             }
@@ -23,19 +23,18 @@ public class Expressao {
                     if (exp.charAt(j) == ')') {
                         ultimaOcorrencia = j + 1;
                         break;
-                    } else if (j == exp.length() -1) {
+                    } else if (j == exp.length() - 1) {
                         return false;
                     }
                 }
             }
         }
-        
+
         if (qtdParentes % 2 != 0) {
             return false;
         }
         return true;
     }
-
 
     public int getQtdeDivisores() {
         int cont = 0;
