@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Lista02_Exe01",
         "Lista01_Exe05",
-        "Lista02_Exe01"
+        "Lista02_Exe04"
     ]
 }
