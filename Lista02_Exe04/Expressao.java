@@ -6,22 +6,36 @@ public class Expressao {
     }
 
     public boolean estaCorretaSintaticamente() {
-        int cont = 0;
-        for (int i = 0; i < exp.length(); i++) {
+        int ultimaOcorrencia = 0;
+        int qtdParentes = 0;
+
+        if (exp.charAt(exp.length() - 1) == '(' || exp.charAt(0) == ')') {
+            return false;
+        }
+        
+        for (int i  = 0; i < exp.length(); i++) {
+            if (exp.charAt(i) == ')') {
+                qtdParentes++;
+            }
             if (exp.charAt(i) == '(') {
-                for (int j = i; j < exp.length(); j++) {
-                    if (exp.charAt(i) == ')') {
-                        cont++;
+                qtdParentes++;
+                for (int j = ultimaOcorrencia; j < exp.length(); j++) {
+                    if (exp.charAt(j) == ')') {
+                        ultimaOcorrencia = j + 1;
+                        break;
+                    } else if (j == exp.length() -1) {
+                        return false;
                     }
                 }
             }
         }
-
-        if (cont % 2 == 0) {
-            return true;
-        } 
-        return false;
+        
+        if (qtdParentes % 2 != 0) {
+            return false;
+        }
+        return true;
     }
+
 
     public int getQtdeDivisores() {
         int cont = 0;
@@ -42,7 +56,6 @@ public class Expressao {
                 break;
             }
         }
-
         return posicao;
     }
 
@@ -51,5 +64,21 @@ public class Expressao {
         exp.estaCorretaSintaticamente();
         exp.getQtdeDivisores();
         exp.getPosicaoOperador();
+        Expressao exp1 = new Expressao("(a+10)+(b-15)/(c+7)+(e+8(d-9))");
+        exp1.estaCorretaSintaticamente();
+        exp1.getQtdeDivisores();
+        exp1.getPosicaoOperador();
+        Expressao exp2 = new Expressao("(abc)");
+        exp2.estaCorretaSintaticamente();
+        exp2.getQtdeDivisores();
+        exp2.getPosicaoOperador();
+        Expressao exp3 = new Expressao("))a+b((");
+        exp3.estaCorretaSintaticamente();
+        exp3.getQtdeDivisores();
+        exp3.getPosicaoOperador();
+        Expressao exp4 = new Expressao("(a+10))()");
+        exp4.estaCorretaSintaticamente();
+        exp4.getQtdeDivisores();
+        exp4.getPosicaoOperador();
     }
 }

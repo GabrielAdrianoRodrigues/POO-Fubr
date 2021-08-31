@@ -1,8 +1,6 @@
  //Gabriel Adriano Rodrigues
  import java.lang.Math;
 
- 
-
  public class InteiroPositivo
  {
      private int x;
