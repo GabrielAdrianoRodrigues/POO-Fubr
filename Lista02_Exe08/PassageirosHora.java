@@ -38,11 +38,12 @@ public class PassageirosHora {
         maiorValor = 0;
         maiorMes = 0;
         maiorDia = 0;
+        maiorHora = 0;
 
         for (int m = 0; m < matriz.length; m++){
-            for (int d = 0; d < matriz[m].length; i++){
-                for (int h = 0; h < matriz[m][d].length; i++) {
-                    if (matriz[m][d][h] > maiorvalor) {
+            for (int d = 0; d < matriz[m].length; d++){
+                for (int h = 0; h < matriz[m][d].length; h++) {
+                    if (matriz[m][d][h] > maiorValor) {
                         maiorvalor = matriz[m][d][h];
                         maiorMes = m;
                         maiorDia = d;
