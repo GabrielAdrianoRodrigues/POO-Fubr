@@ -91,10 +91,10 @@
          return 0;
      } 
      
-     public double fatorial(double fatorial) {
-         double fatorial = 1;,
+     public double fatorial(double divisor) {
+         double fatorial = 1;
       
-         for (int i = 1 ; i <= fatorial; i++) {
+         for (int i = 1 ; i <= divisor; i++) {
               fatorial *= i;
          }  
          return fatorial;
